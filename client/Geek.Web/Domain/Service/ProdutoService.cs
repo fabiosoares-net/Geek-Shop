@@ -9,7 +9,12 @@ namespace Geek.Web.Domain.Service
     public class ProdutoService : IProdutoService
     {
         private readonly HttpClient _client;
-        public const string BasePath = "api/produto";
+        public const string BasePath = "http://localhost:5123/api/produto";
+
+        public ProdutoService(HttpClient client)
+        {
+            _client = client;
+        }
 
         public async Task Delete(Guid id)
         {

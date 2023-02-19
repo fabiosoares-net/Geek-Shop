@@ -9,6 +9,8 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddHttpClient<IProdutoService, ProdutoService>(c =>
     c.BaseAddress = new Uri(builder.Configuration["ServiceUrl:ProductApi"]));
 
+builder.Services.AddScoped<Geek.Web.Domain.Interface.IProdutoService, Geek.Web.Domain.Service.ProdutoService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
